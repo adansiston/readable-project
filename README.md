@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Readable project
 
-## Available Scripts
+In the Readable project you will find a simple post application, which you can submit a post or comments for other posts, you also scores posts and comments.
 
-In the project directory, you can run:
+The project has three pre-defined categories: React, Redux and Udacity, and all posts should be categorized into one of then.
 
-### `npm start`
+The main page shows all posts, which can be sorted by score (likes / dislikes) or submission date.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+By default, posts are organized by punctuation.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Initially, posts from all three categories are displayed: React, Redux and Udacity, but you can filter it.
 
-### `npm test`
+For the purpose of editing and deleting posts and comments, we have created 4 users (ThingOne, ThingTwo, Tyler and Adan), and you can choose one of these
+options. Only the owner of the post or comment can edit or delete.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you click on "View more", it will show a specific post page, where the post will be displayed. All the posts's comments will be displayed as well.
 
-### `npm run build`
+In this page you can also add comments, you can like or dislike the post and comments as well.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The comments will be sorted by score.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The main goal of this project was the functionality, so the visual wasn't very well developed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Clone the readable project repository: 
+    git clone https://github.com/adansiston/readable-project.git
+    Alternatively, you can just download and unzip this file instead of cloning the repository.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Clone the back-end:
+    git clone https://github.com/udacity/reactnd-project-readable-starter.git
+    Alternatively, you can just download and unzip this file instead of cloning the repository.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Make sure you have installed:
+    - NodeJS
+    - npm
+    
+* For both projects:
+	install all project dependencies with `npm install`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* For readable project:
+	start the development server with `npm start`
 
-### Code Splitting
+* For back-end project:
+	start the development server with `node server`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Authors
+* **Adan Siston** - *Initial work* - https://github.com/adansiston/readable-project.git
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## License
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License.
