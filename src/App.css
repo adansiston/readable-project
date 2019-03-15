@@ -1,0 +1,190 @@
+.borderpostComment {
+  border-style:solid;
+  border-color: red;
+}
+
+.inputCooment {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.inputText {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width:100%; 
+  height:30px; 
+  font-size:20px;
+  text-align: center;
+}
+
+.inputTextEdit {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+.btnEdit {
+  text-transform: uppercase;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  width: 100px;
+  align-content: right;
+}
+
+.inputTitle {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width:100%; 
+  height:30px; 
+  font-size:30px;
+  text-align: center;
+}
+
+.inputTitleEdit {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.titleinput{
+  margin-left: 20%;
+  margin-right: 20%;  
+  align-content: center;
+}
+
+.btn {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+}
+
+.new-content {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.newpost {
+  margin-top: 3%;
+  margin-left: 0%;
+  display: inline-block;
+  width: 30%;
+}
+
+
+
+
+.gray{
+  color: gray;  
+}
+
+.borderpost {
+  border-style:solid;
+  border-color:#287EC7;
+}
+
+.round {
+  border: 2px solid white;
+  border-radius: 8px;
+  background: #395697;
+  color: white;
+}
+
+.back{
+  background: #395697;
+}
+
+h1, h2 {
+  display: inline;
+}
+
+.header {
+  height: auto;
+}
+
+.header {
+  background: #395697;
+  height: 60px;
+  width: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
