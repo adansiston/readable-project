@@ -146,15 +146,15 @@ class Posts extends Component {
                   <button type="button" className={"column round" + (this.disableUdacity && 'gray')} disabled={this.disableUdacity} onClick={this.chageToUdacityCategory}>
                     Udacity
                   </button>
-                  <Link to={'/react'} disabled={this.disableReact}>
+                  <Link to={'/react'}>
                     React
                   </Link>
                   <br/>
-                  <Link to={'/redux'} disabled={this.disableRedux}>
+                  <Link to={'/redux'}>
                     Redux
                   </Link>
                   <br/>
-                  <Link to={'/udacity'} disabled={this.disableUdacity}>
+                  <Link to={'/udacity'}>
                     Udacity
                   </Link>
                   <br/>
