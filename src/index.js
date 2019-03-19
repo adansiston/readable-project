@@ -13,6 +13,10 @@ import middleware from './middleware'	// parte nova
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NewPost from './components/NewPost'
 import PostView from './components/PostView';
+import AllCategories from './components/AllCategories';
+import ReactCategory from './components/React';
+import ReduxCategory from './components/Redux';
+import UdacityCategory from './components/Udacity';
 
 
 const store = createStore(reducer, middleware)
@@ -24,6 +28,10 @@ ReactDOM.render(
           <Route path="/" exact={true} component={App} />
           <Route path="/newpost/:category" component={NewPost} />
           <Route path="/postview/:id" component={PostView} />
+          <Route path="/allcategories" component={AllCategories} />          
+          <Route path="/react" component={ReactCategory} />
+          <Route path="/redux" component={ReduxCategory} />
+          <Route path="/udacity" component={UdacityCategory} />
           <Route path='*' component={App} />
         </Switch>
       </BrowserRouter>

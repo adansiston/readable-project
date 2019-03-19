@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleInitialCategories, handleInitialPosts } from './actions/shared'
 import './App.css';
-import Posts from './components/Posts'
+import AllCategories from './components/AllCategories'
 
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Posts/>
+        <AllCategories/>
       </div>
     );
   }

@@ -17,9 +17,15 @@ class Posts extends Component {
 
 
   componentDidMount() {
+    let cat = '';
+    this.props.category === 'all'
+      ? cat = ''
+      : cat = this.props.category
+
     this.setState(() => ({
-      selectedCategory: '',
+      selectedCategory: cat,
     }))
+
   }
 
 
@@ -69,6 +75,10 @@ class Posts extends Component {
   }
 
   render() {
+
+
+
+
     const { posts } = this.props;
     let pts = posts;
     let indice = [];
@@ -136,6 +146,21 @@ class Posts extends Component {
                   <button type="button" className={"column round" + (this.disableUdacity && 'gray')} disabled={this.disableUdacity} onClick={this.chageToUdacityCategory}>
                     Udacity
                   </button>
+                  <Link to={'/react'} disabled={this.disableReact}>
+                    React
+                  </Link>
+                  <br/>
+                  <Link to={'/redux'} disabled={this.disableRedux}>
+                    Redux
+                  </Link>
+                  <br/>
+                  <Link to={'/udacity'} disabled={this.disableUdacity}>
+                    Udacity
+                  </Link>
+                  <br/>
+                  <Link to={'/'} >
+                    All
+                  </Link>
               </div>
             </div>
           </font>
