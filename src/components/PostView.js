@@ -142,7 +142,7 @@ class PostView extends Component {
 
   
   render() {
-    const id = this.id;
+    //const id = this.id;
     
 
     let comments = this.state.comments;

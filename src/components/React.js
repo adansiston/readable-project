@@ -14,8 +14,6 @@ class ReactCategory extends Component {
 
   render() {
 
-    let {id} = this.props.match.params;
-
     return (
       <div>
         <Posts category={'react'}/>

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Posts from './Posts';
-import { handleInitialCategories, handleInitialPosts } from '../actions/shared';
 import PostView from './PostView';
 import * as CommentsAPI from '../utils/CommentsAPI';
+import { Link } from 'react-router-dom'
+
 
 
 class ReactCategoryId extends Component {
@@ -19,8 +18,7 @@ class ReactCategoryId extends Component {
     let {id} = this.props.match.params;
     CommentsAPI.getPost(id)
     .then(post => {
-      console.log('tem erro???', post.hasOwnProperty('error'))
-      post.hasOwnProperty('error')
+      (post.hasOwnProperty('error') || !post.hasOwnProperty('id'))
       ? this.setState(() => ({
           temErro: true
         }))
@@ -43,24 +41,22 @@ class ReactCategoryId extends Component {
 
 
   render() {
-    
-
-    console.log('canRender no render', this.state.canRender)
-     
-  
 
     return (
       <div>
 
-          {console.log('this.state.canRender no render', this.state.canRender)}
-          {console.log('this.state.temErro no render', this.state.temErro)}
           {this.state.canRender && this.state.temErro
-          ? <span>com erro</span>
+          ? 
+          <div>
+            <h1>Post not found.</h1>
+            <br></br><br></br>
+            <Link to='/' >
+              Home
+            </Link>
+          </div>
           : this.state.canRender && !this.state.temErro
-          && <span>sem erro</span>
+          && <PostView id={this.state.post.id} />
           }
-
-          {/*<PostView id={this.state.post.id} />*/}
 
       </div>
     )
