@@ -40,7 +40,6 @@ class PostView extends Component {
   }
 
   componentDidMount() {
-    console.log('this.post did', this.state.post)
     this.setState(() => ({
       showNewComment: false,
       newComment: {},
@@ -145,13 +144,12 @@ class PostView extends Component {
   render() {
     const id = this.id;
     
-    console.log('post no render', this.state.post);
 
     let comments = this.state.comments;
     comments.sort(function (a, b) { return b.voteScore - a.voteScore });
     return (
       <div>
-        {console.log('post no return', this.state.post)}
+
         <Link to='/' >
           Home
         </Link>

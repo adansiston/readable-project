@@ -19,7 +19,6 @@ class Post extends Component {
   showButton = '';
 
   updatePost = () => {
-    console.log('chamou');
     this.forceUpdate();
   }
 
@@ -151,11 +150,8 @@ class Post extends Component {
 
             {!this.props.hideLink &&
               <div>
-              <Link to={`/postview/${this.props.post.id}`} >
-                  View more
-              </Link>
               <Link to={`/${this.props.post.category}/${this.props.post.id}`} >
-                  View more2222
+                  View more
               </Link>
               </div>
               

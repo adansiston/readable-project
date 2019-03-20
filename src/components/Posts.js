@@ -17,7 +17,6 @@ class Posts extends Component {
 
 
   componentDidMount() {
-    console.log('id no post', this.props.id)
     let cat = '';
     this.props.category === 'all'
       ? cat = ''
@@ -138,15 +137,7 @@ class Posts extends Component {
               <div className="row">
                 <br />
                 <h3>Available Categories</h3>
-                  <button type="button" className={"column round" + (this.disableReact && 'gray')} disabled={this.disableReact} onClick={this.chageToReactCategory}>
-                    React
-                  </button>
-                  <button type="button" className={"column round" + (this.disableRedux && 'gray')} disabled={this.disableRedux} onClick={this.chageToReduxCategory}>
-                    Redux
-                  </button>
-                  <button type="button" className={"column round" + (this.disableUdacity && 'gray')} disabled={this.disableUdacity} onClick={this.chageToUdacityCategory}>
-                    Udacity
-                  </button>
+
                   <Link to={'/react'}>
                     React
                   </Link>

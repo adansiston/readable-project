@@ -113,6 +113,9 @@ export function getPost(id) {
     .then(resp => {
       return resp;
     })
+    .catch(
+      console.log('Erro ao buscar o post')
+    )
 }
 
 

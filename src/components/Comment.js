@@ -12,11 +12,14 @@ class Comment extends Component {
     edit: false,
   }
 
+  initialText = '';
+
   classNameTextInput = 'inputText';
   showButton = '';
 
 
   componentDidMount() {
+    this.initialText = this.props.comment.body;
     this.setState(() => ({
       text: this.props.comment.body,
     }))
@@ -39,6 +42,7 @@ class Comment extends Component {
     this.setState(() => ({
       edit: false,
     }))
+    this.initialText = this.state.text;
     this.classNameTextInput = 'inputText';
     this.showButton = 'edit';
 
@@ -55,7 +59,9 @@ class Comment extends Component {
   cancelEdit = () => {
     this.setState(() => ({
       edit: false,
+      text: this.initialText,
     }))
+    //this.initialText = this.state.text;
     this.classNameTextInput = 'inputText';
     this.showButton = 'edit';
 
