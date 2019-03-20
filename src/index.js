@@ -17,7 +17,9 @@ import AllCategories from './components/AllCategories';
 import ReactCategory from './components/React';
 import ReduxCategory from './components/Redux';
 import UdacityCategory from './components/Udacity';
-
+import ReactCategoryId from './components/ReactId';
+import ReduxCategoryId from './components/ReduxId';
+import UdacityCategoryId from './components/UdacityId';
 
 const store = createStore(reducer, middleware)
 
@@ -29,9 +31,16 @@ ReactDOM.render(
           <Route path="/newpost/:category" component={NewPost} />
           <Route path="/postview/:id" component={PostView} />
           <Route path="/allcategories" component={AllCategories} />          
+          
+          <Route path="/react/:id" component={ReactCategoryId} />
           <Route path="/react" component={ReactCategory} />
+          
+          <Route path="/redux/:id" component={ReduxCategoryId} />
           <Route path="/redux" component={ReduxCategory} />
+          
+          <Route path="/udacity/:id" component={UdacityCategoryId} />
           <Route path="/udacity" component={UdacityCategory} />
+                    
           <Route path='*' component={App} />
         </Switch>
       </BrowserRouter>

@@ -19,6 +19,7 @@ export function editPostScore(operation, id) {
     return resp;
   })
 }
+
 export function editCommentScore(operation, id) {
   let op = {
     option: operation
@@ -106,16 +107,13 @@ export function removeComment(id) { // único acesso ao back, fazendo atualizaç
 }
 
 
-
-
-
-
-
-
-
-
-
-
+export function getPost(id) { 
+  return fetch(`${api}/posts/${id}`, { headers })
+    .then(posts => posts.json())
+    .then(resp => {
+      return resp;
+    })
+}
 
 
 export function getPosts() {  // ok

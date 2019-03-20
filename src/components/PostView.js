@@ -17,21 +17,36 @@ class PostView extends Component {
     showNewComment: false,
     newComment: {},
     commentText: '',
+    post: {},
+    update: false,
   }
 
+  id = '';
+  
+
+  componentWillMount() {
+    this.id = this.props.id
+    CommentsAPI.getPost(this.id)
+      .then(post => {
+        this.setState(() => ({
+          post
+        }));
+        CommentsAPI.getComments(this.id)
+        .then(resp =>
+          this.setState(() => ({
+            comments: resp,
+          })))
+      });
+  }
 
   componentDidMount() {
+    console.log('this.post did', this.state.post)
     this.setState(() => ({
       showNewComment: false,
       newComment: {},
       commentText: '',
     }))
-    const { id } = this.props.match.params
-    CommentsAPI.getComments(id)
-      .then(resp =>
-        this.setState(() => ({
-          comments: resp,
-        })))
+
   }
 
 
@@ -48,22 +63,31 @@ class PostView extends Component {
     newComment.body = this.state.commentText;
     let token = localStorage.token = Math.random().toString(36).substr(-8);
     newComment.id = token;
-    newComment.parentId = post.id;
+    newComment.parentId = this.state.post.id;
     newComment.timestamp = Date.now();
     newComment.deleted = false;
-    newComment.voteScore = 0;
+    newComment.voteScore = 1;
 
 
     handleAddComment(newComment)
     .then(
       this.setState(prevState => ({
         comments: [...prevState.comments, newComment]
+      })),
+      post = this.state.post,
+      post.commentCount++,
+      this.setState(() => ({
+        post
       }))
     )
 
-
     this.setState(() => ({
       showNewComment: false,
+      
+    }))
+
+    this.setState(() => ({
+      update: !this.state.update
     }))
     
 
@@ -86,6 +110,16 @@ class PostView extends Component {
     this.setState(() => ({
       comments
     }))
+    
+    let post = this.state.post;
+    post.commentCount--;
+    this.setState(() => ({
+        post
+      }))
+
+    this.setState(() => ({
+      update: !this.state.update
+    }))
   }
 
   handleEditComment = (comment) => {
@@ -104,33 +138,30 @@ class PostView extends Component {
     this.setState(() => ({
       comments
     }))
+
   }
 
-
+  
   render() {
-    const { id } = this.props.match.params
-    const { posts } = this.props;
-    let post;
-
-    Object.getOwnPropertyNames(posts).forEach(function (val, idx, array) {
-      posts[val].id === id && (post = posts[val]);
-    });
+    const id = this.id;
+    
+    console.log('post no render', this.state.post);
 
     let comments = this.state.comments;
     comments.sort(function (a, b) { return b.voteScore - a.voteScore });
-
     return (
       <div>
+        {console.log('post no return', this.state.post)}
         <Link to='/' >
           Home
         </Link>
 
-        <Post key={post.id} post={post} edit='true' hideLink='false'/>
+        <Post update={this.state.update} key={this.state.post.id} post={this.state.post} edit='true' hideLink='false'/>
         <br />
         {!this.state.showNewComment &&
           <button type="button" onClick={this.showNewCommentInput}>
             New Comment
-        </button>
+          </button>
         }
         {this.state.showNewComment &&
           <div>
@@ -139,7 +170,7 @@ class PostView extends Component {
               value={this.state.commentText}
               onChange={this.handleCommentText}
             /><br></br>
-            <button type="button" onClick={() => { this.handleNewComment(post) }} >
+            <button type="button" onClick={() => { this.handleNewComment(this.post) }} >
 
               Save
             </button>

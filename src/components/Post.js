@@ -13,9 +13,15 @@ class Post extends Component {
     title: '',
     edit: false,
     category: 'none',
+    score: 0,
   }
 
   showButton = '';
+
+  updatePost = () => {
+    console.log('chamou');
+    this.forceUpdate();
+  }
 
 
   savePost = () => {
@@ -37,6 +43,7 @@ class Post extends Component {
       title: this.props.post.title,
       text: this.props.post.body,
       category: this.props.post.category,
+      score: this.props.post.voteScore,
     }))
   }
 
@@ -96,6 +103,13 @@ class Post extends Component {
 
   changeScore(operation) {
     this.props.dispatch(handlePostScore(operation, this.props.post.id));
+    let score = this.state.score;
+    operation === 'upVote'
+      ? score ++
+      : score--
+      this.setState(() => ({
+        score
+      }))
   }
 
   subtractScore = () => {
@@ -136,9 +150,15 @@ class Post extends Component {
           <div>
 
             {!this.props.hideLink &&
+              <div>
               <Link to={`/postview/${this.props.post.id}`} >
                   View more
               </Link>
+              <Link to={`/${this.props.post.category}/${this.props.post.id}`} >
+                  View more2222
+              </Link>
+              </div>
+              
             }
 
             <input
@@ -168,7 +188,7 @@ class Post extends Component {
 
 
             <span>
-              Vote score: {this.props.post.voteScore} &nbsp;&nbsp;
+              Vote score: {this.state.score} &nbsp;&nbsp;
               <Icon name='thumbs up outline' size='large' onClick={this.addScore} /> &nbsp;&nbsp;
               <Icon name='thumbs down outline'  size='large' onClick={this.subtractScore}/> &nbsp;&nbsp;
               

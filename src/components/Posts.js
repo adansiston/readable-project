@@ -17,6 +17,7 @@ class Posts extends Component {
 
 
   componentDidMount() {
+    console.log('id no post', this.props.id)
     let cat = '';
     this.props.category === 'all'
       ? cat = ''

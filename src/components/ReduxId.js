@@ -3,8 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Posts from './Posts';
 import { handleInitialCategories, handleInitialPosts } from '../actions/shared';
+import PostView from './PostView';
 
-class ReduxCategory extends Component {
+class ReduxCategoryId extends Component {
 
   componentDidMount() {
     this.props.dispatch(handleInitialCategories());
@@ -12,15 +13,17 @@ class ReduxCategory extends Component {
   }
 
   render() {
-    
-    let {id} = this.props.match.params;
 
+    let {id} = this.props.match.params;
+ 
     return (
       <div>
-        <Posts category={'redux'}/>
+
+        <PostView id={id} />
+
       </div>
     )
   }
 }
 
-export default withRouter(connect()(ReduxCategory))
+export default withRouter(connect()(ReduxCategoryId))
